@@ -1,0 +1,41 @@
+*{
+   margin: 0; 
+    
+}
+
+.header {
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.container{
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin: 20px; 
+}
+
+#clickForGrid {
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    gap: 20px; 
+}
+
+#firstGrid {
+    height: 400px; 
+    width: 400px; 
+    
+    background-color: darkslategrey;
+}
+
+#firstGrid tr {
+    border: 1px solid white;
+}
+
+
+#firstGrid td {
+    border: 1px solid white;
+}
+
