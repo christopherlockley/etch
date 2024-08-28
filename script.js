@@ -1,45 +1,110 @@
-const header = document.querySelector(".header"); 
-const aGrid = document.querySelector("#firstGrid"); 
+const gridSide = 600; 
+let squaresPerSide = 16; 
+
+const sketchArea = document.querySelector("#sketchArea"); 
+
+const sliderContainer = document.querySelector("#sliderContainer"); 
+const slider = document.querySelector("#slider"); 
+const sliderValue = document.querySelector("#sliderValue"); 
+
+sliderValue.textContent = `${slider.value} x ${slider.value} (Resolution)`; 
+
+sketchArea.style.width = sketchArea.style.height = `${gridSide}px`;
+
+function setBackGroundColor(){
+    this.style.backgroundColor = "darkslategrey"; 
+}
+
+const icons = document.querySelector(".icons"); 
+const randomColor = document.querySelector("#color"); 
 
 
-const heading = document.createElement("h1"); 
-heading.textContent = "Etch-A-Sketch"; 
-heading.style.color = "grey"; 
+    
 
-header.appendChild(heading); 
+    randomColor.addEventListener("click", () => {
+
+        const colourValues = ["cyan", "blue", "red", "yellow", "purple", "green"];
+        let randomiseColour = [Math.floor(Math.random() * colourValues.length)];
+
+
+
+
+        
+        console.log(randomiseColour); 
+
+
+    }); 
 
  
 
 
-function makeGrid(){
 
-    const grid = document.getElementById("firstGrid"); 
-    
 
-    for (let i = 0; i < 17; i++){
-        let myRow = document.createElement("tr"); 
-        myRow.id = "row" + i; 
+function createGridCells(squaresPerSide){
+    const numOfSquares = (squaresPerSide * squaresPerSide); 
+    const widthOrHeight = `${(gridSide / squaresPerSide) - 2}px`;
+    for (let i = 0; i < numOfSquares; i++){
+        const gridCell = document.createElement("div"); 
 
-        grid.appendChild(myRow); 
+        gridCell.style.width = gridCell.style.height = widthOrHeight;
+        gridCell.classList.add("cell"); 
 
-        let rowW = document.getElementById("row" + i); 
+        sketchArea.appendChild(gridCell); 
 
-        for (let j = 0; j < 17; j++){
-            let myCell = document.createElement("td"); 
-           
-            rowW.appendChild(myCell); 
-        }
-
+        gridCell.addEventListener("mouseover", setBackGroundColor);
     }
+}
+
+function removeGridCells(){
+    while (sketchArea.firstChild){
+        sketchArea.removeChild(sketchArea.firstChild); 
+    }
+}
+
+createGridCells(16);
+
+slider.oninput = function () {
+    let txt = `${this.value} x ${this.value} (Resolution)`;
+    sliderValue.innerHTML = txt; 
+    removeGridCells(); 
+    createGridCells(this.value); 
 }
 
 
 
-window.onload = makeGrid(); 
 
-// Allow user's to manipulate the number of cells and rows // 
-// Take an input (number) and alter the value of (i) // 
 
-const userRowInput = document.getElementById("rows"); 
-const userColumnInput = document.getElementById("columns"); 
+
+
+
+
+
+
+   
+            
+          
+           
+    
+    
+         
+
+               
+               
+            
+     
+ 
+            
+                
+                
+        
+     
+
+
+    
+    
+        
+    
+
+
+ 
 
