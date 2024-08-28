@@ -12,34 +12,12 @@ sliderValue.textContent = `${slider.value} x ${slider.value} (Resolution)`;
 sketchArea.style.width = sketchArea.style.height = `${gridSide}px`;
 
 function setBackGroundColor(){
-    this.style.backgroundColor = "darkslategrey"; 
-}
+this.style.backgroundColor = "darkslategrey"; 
+}; 
+   
 
-const icons = document.querySelector(".icons"); 
-const randomColor = document.querySelector("#color"); 
-
-
-    
-
-    randomColor.addEventListener("click", () => {
-
-        const colourValues = ["cyan", "blue", "red", "yellow", "purple", "green"];
-        let randomiseColour = [Math.floor(Math.random() * colourValues.length)];
-
-
-
-
-        
-        console.log(randomiseColour); 
-
-
-    }); 
 
  
-
-
-
-
 function createGridCells(squaresPerSide){
     const numOfSquares = (squaresPerSide * squaresPerSide); 
     const widthOrHeight = `${(gridSide / squaresPerSide) - 2}px`;
@@ -54,6 +32,14 @@ function createGridCells(squaresPerSide){
         gridCell.addEventListener("mouseover", setBackGroundColor);
     }
 }
+
+const toggleGrid = document.querySelector("#toggleGrid"); 
+
+toggleGrid.addEventListener("click", () => {
+    const gridCells = document.getElementById("#gridCell");
+    gridCells.style.border = 0; 
+})
+    
 
 function removeGridCells(){
     while (sketchArea.firstChild){
