@@ -5,21 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-A-Sketch</title>
     <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
     <div class="header">
         <h2>Etch-A-Sketch</h2>
     </div>
-    <div class="icons">
-    <button id = "toggleGrid">Toggle Grid <img src="./icons/gridicon.svg">   </button>
-    <button id = "black">Black</button>
-    <button id = "rainbow">Rainbow <img src="./icons/rainbow.svg"></button>
-    <button id = "color">Colours <img src = "./icons/palette.svg"></button>
-    <button id = "erase">Erase <img src="./icons/eraser.svg"></button></div>
+ 
+    <div class="top container">
+        <p>Toggle Grid</p><span id = "gridToggle" class="material-symbols-outlined">grid_on</span>
+        <!-- <span class="material-symbols-outlined">palette</span> -->
+        <p>Multicoloured</p><span id = "toggleRainbow" class="material-symbols-outlined">looks</span> 
+        <p>Eraser</p><span id = "eraser" class="material-symbols-outlined">ink_eraser</span>
+    </div>
+
+
+
     <div id = "sketchArea" class="container">
     </div>
 
-    <div id = "sliderContainer">
+    <div id = "container">
         <input type = "range" min = "2" maximum = "100" value="16" class="slider" id="slider">
         <p id="sliderValue"></p>
     </div>
